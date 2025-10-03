@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訴願系統資料外洩事件計罰方案簡報</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .slide {
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        /* Fade animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .timeline-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1rem;
+        }
+        .timeline-item-content.expanded {
+            max-height: 200px; /* Adjust as needed */
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <main class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="p-8 md:p-12 relative">
+            <!-- Slides Container -->
+            <div id="slides-container">
+                
+                <!-- Slide 1: Title -->
+                <section class="slide active fade-in text-center">
+                    <div class="flex flex-col items-center justify-center h-[500px]">
+                        <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">內部簡報</span>
+                        <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mt-4">「訴願系統資料外洩事件」</h1>
+                        <h2 class="text-2xl md:text-3xl font-semibold text-slate-700 mt-2">計罰方案說明</h2>
+                        <p class="mt-8 text-slate-500">日期：114年10月</p>
+                    </div>
+                </section>
+
+                <!-- Slide 2: Event Overview -->
+                <section class="slide fade-in">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">事件總覽</h2>
+                    <div class="space-y-4 text-slate-700 text-lg leading-relaxed bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <p>本次事件始於 <strong>114年9月19日</strong>，承攬廠商因網站改版進行資料轉置作業時，因篩選條件設定不完整，導致部分未公開的訴願案件資料（含訴願人個資）同步至對外網站。</p>
+                        <p>此異常狀態持續至 <strong>9月22日</strong> 由本部同仁發現並通報後，才進行緊急關閉與修復。經認定，未授權的資料異常公開狀態，總計持續超過 <strong class="text-red-600">60小時</strong>。</p>
+                    </div>
+                     <div class="mt-6 flex items-center p-4 rounded-lg bg-amber-50 text-amber-800 border border-amber-200">
+                        <svg class="w-6 h-6 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <p class="font-medium">核心問題：應保密資料在未授權情況下對外公開。</p>
+                    </div>
+                </section>
+
+                <!-- Slide 3: Interactive Timeline -->
+                <section class="slide fade-in">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">事件時間軸 (可點擊展開)</h2>
+                    <div id="timeline" class="space-y-4">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item cursor-pointer bg-white p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors" data-target="timeline-1">
+                            <div class="flex justify-between items-center">
+                                <p class="font-semibold text-indigo-700">9月19日 15:00 - 17:30</p>
+                                <svg class="w-5 h-5 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div id="timeline-1" class="timeline-item-content text-slate-600">
+                                承攬廠商為網站改版進行資料轉置，因篩選條件設定不完整，致使未公開案件資料同步至對外網站。
+                            </div>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item cursor-pointer bg-white p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors" data-target="timeline-2">
+                             <div class="flex justify-between items-center">
+                                <p class="font-semibold text-red-700">9月19日 17:07 起</p>
+                                <svg class="w-5 h-5 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div id="timeline-2" class="timeline-item-content text-slate-600">
+                                系統紀錄顯示，外部IP已可查詢並存取前述未公開之案件資料，資料外洩風險開始。
+                            </div>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item cursor-pointer bg-white p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors" data-target="timeline-3">
+                             <div class="flex justify-between items-center">
+                                <p class="font-semibold text-amber-700">9月22日 09:30 前</p>
+                                <svg class="w-5 h-5 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div id="timeline-3" class="timeline-item-content text-slate-600">
+                                本部法制處同仁於執行業務時發現異常情況，立即通報本部資訊單位。
+                            </div>
+                        </div>
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item cursor-pointer bg-white p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors" data-target="timeline-4">
+                             <div class="flex justify-between items-center">
+                                <p class="font-semibold text-green-700">9月22日 09:30 - 15:00</p>
+                                <svg class="w-5 h-5 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div id="timeline-4" class="timeline-item-content text-slate-600">
+                                資訊單位即刻關閉查詢功能進行損害控制 (09:30)，並通知廠商 (09:35)。廠商於當日 15:00 完成程式碼修正，恢復對外服務。
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4: Penalty Basis -->
+                <section class="slide fade-in">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-8">計罰依據</h2>
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                            <div class="text-indigo-600 mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100 mb-4">
+                               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            </div>
+                            <h3 class="font-semibold text-lg text-slate-800">違反資料機密性</h3>
+                            <p class="text-slate-600 mt-2 text-sm">違反合約「資安指標」，未能確保機關資料的「機密性」。</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                            <div class="text-red-600 mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-red-100 mb-4">
+                               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                            </div>
+                            <h3 class="font-semibold text-lg text-slate-800">系統功能性故障</h3>
+                            <p class="text-slate-600 mt-2 text-sm">提供錯誤資訊視為「功能性故障」，持續時間超過60小時。</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                            <div class="text-amber-600 mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-amber-100 mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <h3 class="font-semibold text-lg text-slate-800">變更管理流程疏失</h3>
+                            <p class="text-slate-600 mt-2 text-sm">未依ISMS規範執行版更，缺乏上線前確認程序。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Slide 5: Penalty Calculation -->
+                <section class="slide fade-in">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-8">計罰內容：違約金</h2>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1 bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                            <p class="text-slate-600">個資外洩計罰</p>
+                            <p class="text-5xl font-bold text-indigo-600 my-3">10 <span class="text-xl">點</span></p>
+                            <p class="text-xs text-slate-500">依據：資訊系統相關補充規定</p>
+                        </div>
+                        <div class="flex items-center justify-center text-4xl font-light text-slate-400">+</div>
+                        <div class="flex-1 bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                            <p class="text-slate-600">系統功能性故障計罰</p>
+                            <p class="text-5xl font-bold text-red-600 my-3">16 <span class="text-xl">點</span></p>
+                             <p class="text-xs text-slate-500">依據：故障逾60小時換算</p>
+                        </div>
+                        <div class="flex items-center justify-center text-4xl font-light text-slate-400">=</div>
+                        <div class="flex-1 bg-indigo-600 text-white p-6 rounded-lg text-center">
+                            <p class="">違約金合計</p>
+                            <p class="text-5xl font-bold my-3">26 <span class="text-xl">點</span></p>
+                             <p class="text-xs text-indigo-200">依合約規定辦理</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Slide 6: Corrective Actions -->
+                <section class="slide fade-in">
+                     <h2 class="text-3xl font-bold text-slate-800 mb-8">計罰內容：矯正及預防措施</h2>
+                     <ul class="space-y-4">
+                        <li class="flex items-start p-4 bg-slate-50 rounded-lg">
+                           <div class="bg-green-100 text-green-700 rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 mt-1">
+                               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                           </div>
+                           <div>
+                                <h4 class="font-semibold text-slate-800">提交根本原因分析報告 (RCA)</h4>
+                                <p class="text-slate-600 text-sm">於14日內提交，詳述問題根因、影響範圍與具體改善計畫。</p>
+                           </div>
+                        </li>
+                         <li class="flex items-start p-4 bg-slate-50 rounded-lg">
+                           <div class="bg-green-100 text-green-700 rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                           </div>
+                           <div>
+                                <h4 class="font-semibold text-slate-800">修訂標準作業程序 (SOP)</h4>
+                                <p class="text-slate-600 text-sm">修訂資料轉置、版更流程，強化機敏資料驗證機制，並提交備查。</p>
+                           </div>
+                        </li>
+                        <li class="flex items-start p-4 bg-slate-50 rounded-lg">
+                           <div class="bg-green-100 text-green-700 rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                           </div>
+                           <div>
+                                <h4 class="font-semibold text-slate-800">執行第三方資安稽核</h4>
+                                <p class="text-slate-600 text-sm">自費執行經本部認可的第三方稽核，全面檢視開發與維運流程。</p>
+                           </div>
+                        </li>
+                         <li class="flex items-start p-4 bg-slate-50 rounded-lg">
+                           <div class="bg-green-100 text-green-700 rounded-full w-8 h-8 flex items-center justify-center mr-4 shrink-0 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                           </div>
+                           <div>
+                                <h4 class="font-semibold text-slate-800">強化人員資安訓練</h4>
+                                <p class="text-slate-600 text-sm">要求相關專案人員於三個月內完成資安或安全開發課程。</p>
+                           </div>
+                        </li>
+                     </ul>
+                </section>
+                
+                 <!-- Slide 7: Conclusion -->
+                <section class="slide fade-in text-center">
+                    <div class="flex flex-col items-center justify-center h-[500px]">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-6">結論與後續事宜</h2>
+                        <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                            本次事件凸顯系統變更與資料管理流程中的潛在風險。期盼透過本次處理，與承攬廠商建立更嚴謹、安全的合作模式。
+                        </p>
+                        <div class="mt-8 bg-indigo-50 border border-indigo-200 text-indigo-800 p-4 rounded-lg">
+                            後續將以正式函文通知，請廠商依約配合辦理計罰與改善措施。
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="bg-slate-50 p-4 flex justify-between items-center border-t border-slate-200">
+            <span id="slide-counter" class="text-sm text-slate-500"></span>
+            <div class="flex gap-2">
+                <button id="prev-btn" class="px-4 py-2 text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                    上一頁
+                </button>
+                <button id="next-btn" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                    下一頁
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slideCounter = document.getElementById('slide-counter');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+                updateControls();
+            }
+
+            function updateControls() {
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === slides.length - 1;
+                slideCounter.textContent = `第 ${currentSlide + 1} / ${slides.length} 頁`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+            
+            // Timeline interactivity
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.dataset.target;
+                    const content = document.getElementById(targetId);
+                    const icon = item.querySelector('svg');
+
+                    const isExpanded = content.classList.contains('expanded');
+
+                    // Optional: Close all others when one is opened
+                    // document.querySelectorAll('.timeline-item-content.expanded').forEach(openContent => {
+                    //     if(openContent !== content) {
+                    //        openContent.classList.remove('expanded');
+                    //        openContent.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    //     }
+                    // });
+
+                    content.classList.toggle('expanded');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // Initial setup
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
+
+
